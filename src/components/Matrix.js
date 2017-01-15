@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Pixel from './Pixel';
+import ColorPicker from './ColorPicker';
 
 const Row = styled.div`
   display: flex;
@@ -59,6 +60,11 @@ class Matrix extends Component {
     }
   };
 
+  handleColorChange = (color) => {
+    // console.log('handleColorChange', color);
+    this.setState({ currentColor: color && color.hex })
+  };
+
   togglePixel(row, column) {
     this.setState(({ pixels, currentColor }, props) => ({
       pixels: {
@@ -76,7 +82,7 @@ class Matrix extends Component {
   
   render() {
     const { rows, columns } = this.props;
-    const { pixels } = this.state;
+    const { pixels, currentColor } = this.state;
 
     return (
       <div onMouseLeave={this.handleMouseLeave} style={{ margin: 20 }}>
@@ -93,6 +99,13 @@ class Matrix extends Component {
             ))}
           </Row>
         ))}
+        <ColorPicker
+          color={currentColor}
+          onChange={this.handleColorChange}
+        />
+        <button onClick={() => this.handleColorChange(null)}>
+          clear
+        </button>
       </div>
     )
   }
