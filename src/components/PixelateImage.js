@@ -13,7 +13,7 @@ class PixelateImage extends Component {
   };
 
   handleFileChange = (e) => {
-    const { width, height } = this.props;
+    const { width, height, onChange } = this.props;
 
     var canvas = document.createElement('canvas');
     canvas.width = width;
@@ -55,7 +55,9 @@ class PixelateImage extends Component {
           // data[i+3] == alpha
         ))
       }
-      console.log(`pixels (${img.width}x${img.height})`, pixels);
+      // console.log(`pixels (${img.width}x${img.height})`, pixels);
+
+      onChange(pixels);
     };
     img.src = URL.createObjectURL(e.target.files[0]);
   };
