@@ -1,0 +1,23 @@
+- Consider storing pixels in state as a flat array instead of multidimensional
+  - will match ImageData closer, and simplify/speed up switch between the two
+  - could then just use flex/wrapping to layout grid?
+  - con: harder to move between rows/columns on grid
+- Color palettes
+  - https://en.wikipedia.org/wiki/List_of_video_game_console_palettes
+- Keyboard shortcuts
+- Tools
+  - Fill bucket - 
+  - Eyedropper
+  - Eraser
+  - Shapes
+    - Line (hold shift to draw straight)
+    - Rectangle (shift draws squares)
+    - Circle (shift maintains aspect ratio)
+  - Dithering (alternate rows/colums while drawing)
+  - Lighten
+  - Mirror vertically/horizontal
+  - Rotate 90
+  - Shift pixels left/right (w/ w/o wrapping)
+- Frames
+- Layers
+- Undo/redo

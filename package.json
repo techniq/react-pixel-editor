@@ -11,6 +11,7 @@
     "react": "^15.6.1",
     "react-color": "^2.13.4",
     "react-dom": "^15.6.1",
+    "react-dropzone": "^4.0.0",
     "react-test-renderer": "^15.6.1",
     "styled-components": "^2.1.1"
   },

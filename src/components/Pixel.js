@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
   flex: 1 0 auto;
   margin: 1px;
-  background-color: ${props => props.color || '#eee'};
-  border: 1px solid #ddd;
-  user-select: none;
+  // background-color: ${props => props.color || '#eee'};
+  background-color: ${props => props.color || 'rgba(0,0,0,0)'};
+  // border: 1px solid #ddd;
+  // border: 1px solid ${props => props.color || '#ddd'};
   // border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+
+  :hover {
+    ${props => !props.color && css`background-color: ${props.currentColor};`}
+    opacity: ${props => props.color ? .7 : .3}
+  }
 `;
 
 const Spacer = styled.span`
@@ -21,9 +29,9 @@ class Pixel extends Component {
   }
 
   render() {
-    const { color, onMouseDown, onMouseUp, onMouseOver, children } = this.props;
+    const { color, currentColor, onMouseDown, onMouseUp, onMouseOver, children } = this.props;
     return (
-      <Wrapper color={color} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseOver={onMouseOver}>
+      <Wrapper color={color} currentColor={currentColor} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseOver={onMouseOver}>
         <Spacer />
         <span>{children}</span>
       </Wrapper>

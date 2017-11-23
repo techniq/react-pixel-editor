@@ -49,7 +49,7 @@ class ColorPicker extends Component {
   };
 
   handleChange = (color) => {
-    this.setState({ color: color.hex })
+    this.setState({ color: color.rgb })
     if (this.props.onChange) {
       this.props.onChange(color);
     }
@@ -67,7 +67,7 @@ class ColorPicker extends Component {
         { displayColorPicker && (
           <Popover>
             <Cover onClick={this.handleClose}/>
-            <SketchPicker color={color || 'black'} onChange={this.handleChange } />
+            <SketchPicker color={color} onChange={this.handleChange } />
           </Popover>
         )}
       </Wrapper>
